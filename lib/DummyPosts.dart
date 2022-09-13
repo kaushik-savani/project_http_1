@@ -47,50 +47,36 @@ class _DummyPostsState extends State<DummyPosts> {
             title: Text("Dummy Posts"),
           ),
           body: status
-              ? SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Posts :"),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: d!.posts!.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        child: ListTile(
-                          leading: Text("${d!.posts![index].id}"),
-                          title: Text("${d!.posts![index].title}"),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("body :${d!.posts![index].body}"),
-                              Text("userId :${d!.posts![index].userId}"),
-                              Text("Tags :"),
-                              ListView.builder(
-                                primary: false,
-                                shrinkWrap: true,
-                                itemCount: d!.posts![index].tags!.length,
-                                itemBuilder: (context, index1) {
-                                  return Text(
-                                      "  ${d!.posts![index].tags![index1]}");
-                                },
-                              ),
-                              Text(
-                                  "reactions :${d!.posts![index].reactions}")
-                            ],
-                          ),
-                        ),
-                      );
-                    },
+              ? ListView.builder(
+            shrinkWrap: true,
+            itemCount: d!.posts!.length,
+            itemBuilder: (context, index) {
+              return Card(
+                child: ListTile(
+                  leading: Text("${d!.posts![index].id}"),
+                  title: Text("${d!.posts![index].title}"),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("body :${d!.posts![index].body}"),
+                      Text("userId :${d!.posts![index].userId}"),
+                      Text("Tags :"),
+                      ListView.builder(
+                        primary: false,
+                        shrinkWrap: true,
+                        itemCount: d!.posts![index].tags!.length,
+                        itemBuilder: (context, index1) {
+                          return Text(
+                              "  ${d!.posts![index].tags![index1]}");
+                        },
+                      ),
+                      Text(
+                          "reactions :${d!.posts![index].reactions}")
+                    ],
                   ),
-                  Text("total :${d!.total}"),
-                  Text("skip :${d!.skip}"),
-                  Text("limit :${d!.limit}"),
-                ],
-              ),
-            ),
+                ),
+              );
+            },
           )
               : Center(child: CircularProgressIndicator()),
         ),

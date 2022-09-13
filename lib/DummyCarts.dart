@@ -48,61 +48,47 @@ class _DummyCartsState extends State<DummyCarts> {
             title: Text("Dummy Carts"),
           ),
           body: status
-              ? SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Carts :"),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: d!.carts!.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                          child: ListTile(
-                            leading: Text("${d!.carts![index].id}"),
-                            title: Column(
-                              children: [
-                                ListView.builder(
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  itemCount:
-                                  d!.carts![index].products!.length,
-                                  itemBuilder: (context, index1) {
-                                    return ListTile(
-                                      leading: Text(
-                                          "${d!.carts![index].products![index1].id}"),
-                                      title: Text(
-                                          "${d!.carts![index].products![index1].title}"),
-                                      subtitle: Column(
-                                        children: [
-                                          Text(
-                                              "price :${d!.carts![index].products![index1].price}"),
-                                          Text(
-                                              "quantity :${d!.carts![index].products![index1].quantity}"),
-                                          Text(
-                                              "total :${d!.carts![index].products![index1].total}"),
-                                          Text(
-                                              "discountPercentage :${d!.carts![index].products![index1].discountPercentage}"),
-                                          Text(
-                                              "discountedPrice :${d!.carts![index].products![index1].discountedPrice}"),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
-                          ));
-                    },
-                  ),
-                  Text("total :${d!.total}"),
-                  Text("skip :${d!.skip}"),
-                  Text("limit :${d!.limit}"),
-                ],
-              ),
-            ),
+              ? ListView.builder(
+            shrinkWrap: true,
+            itemCount: d!.carts!.length,
+            itemBuilder: (context, index) {
+              return Card(
+                  child: ListTile(
+                    leading: Text("${d!.carts![index].id}"),
+                    title: Column(
+                      children: [
+                        ListView.builder(
+                          primary: false,
+                          shrinkWrap: true,
+                          itemCount:
+                          d!.carts![index].products!.length,
+                          itemBuilder: (context, index1) {
+                            return ListTile(
+                              leading: Text(
+                                  "${d!.carts![index].products![index1].id}"),
+                              title: Text(
+                                  "${d!.carts![index].products![index1].title}"),
+                              subtitle: Column(
+                                children: [
+                                  Text(
+                                      "price :${d!.carts![index].products![index1].price}"),
+                                  Text(
+                                      "quantity :${d!.carts![index].products![index1].quantity}"),
+                                  Text(
+                                      "total :${d!.carts![index].products![index1].total}"),
+                                  Text(
+                                      "discountPercentage :${d!.carts![index].products![index1].discountPercentage}"),
+                                  Text(
+                                      "discountedPrice :${d!.carts![index].products![index1].discountedPrice}"),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ));
+            },
           )
               : Center(
             child: CircularProgressIndicator(),
@@ -225,7 +211,7 @@ class Products {
     price = json['price'];
     quantity = json['quantity'];
     total = json['total'];
-    discountPercentage = json['discountPercentage'];
+    discountPercentage = double.parse(json['discountPercentage'].toString());
     discountedPrice = json['discountedPrice'];
   }
 

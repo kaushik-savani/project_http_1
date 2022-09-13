@@ -29,8 +29,8 @@ class _DummyUsersState extends State<DummyUsers> {
       var response = await http.get(url);
       print('Response status: ${response.statusCode}');
       print('Response body: ${response.body}');
-      m=jsonDecode(response.body);
-      d=dummy.fromJson(m);
+      m = jsonDecode(response.body);
+      d = dummy.fromJson(m);
       setState(() {
         status = true;
       });
@@ -47,120 +47,93 @@ class _DummyUsersState extends State<DummyUsers> {
             title: Text("Dummy Users"),
           ),
           body: status
-              ? SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Users : "),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: d!.users!.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        elevation: 3,
-                        child: ListTile(
-                          leading: Text("${d!.users![index].id}"),
-                          title: Text(
-                              "${d!.users![index].firstName} ${d!.users![index].lastName} ${d!.users![index].maidenName}"),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("age :${d!.users![index].age}"),
-                              Text("gender :${d!.users![index].gender}"),
-                              Text("email :${d!.users![index].email}"),
-                              Text("phone :${d!.users![index].phone}"),
-                              Text(
-                                  "username :${d!.users![index].username}"),
-                              Text(
-                                  "password :${d!.users![index].password}"),
-                              Text(
-                                  "birthdate :${d!.users![index].birthDate}"),
-                              Text("image :${d!.users![index].image}"),
-                              Text(
-                                  "bloodGroup :${d!.users![index].bloodGroup}"),
-                              Text("height :${d!.users![index].height}"),
-                              Text("weight :${d!.users![index].weight}"),
-                              Text(
-                                  "eyeColor :${d!.users![index].eyeColor}"),
-                              Text("hair :"),
-                              Text(
-                                  "   color :${d!.users![index].hair!.color}"),
-                              Text(
-                                  "   type :${d!.users![index].hair!.type}"),
-                              Text("domain :${d!.users![index].domain}"),
-                              Text("ip :${d!.users![index].ip}"),
-                              Text("address :"),
-                              Text(
-                                  "    address :${d!.users![index].address!.address}"),
-                              Text(
-                                  "    city :${d!.users![index].address!.city}"),
-                              Text("    coordinates :"),
-                              Text(
-                                  "        lat :${d!.users![index].address!.coordinates!.lat}"),
-                              Text(
-                                  "        lag :${d!.users![index].address!.coordinates!.lat}"),
-                              Text(
-                                  "   postalcode :${d!.users![index].address!.postalCode}"),
-                              Text(
-                                  "   state :${d!.users![index].address!.state}"),
-                              Text(
-                                  "macAddress :${d!.users![index].macAddress}"),
-                              Text(
-                                  "university :${d!.users![index].university}"),
-                              Text("bank :"),
-                              Text(
-                                  "    cardExpire :${d!.users![index].bank!.cardExpire}"),
-                              Text(
-                                  "    cardNumber :${d!.users![index].bank!.cardNumber}"),
-                              Text(
-                                  "    cardType :${d!.users![index].bank!.cardType}"),
-                              Text(
-                                  "    currency :${d!.users![index].bank!.currency}"),
-                              Text(
-                                  "    iban :${d!.users![index].bank!.iban}"),
-                              Text("Company :"),
-                              Text("   address :"),
-                              Text(
-                                  "       address :${d!.users![index].company!.address!.address}"),
-                              Text(
-                                  "       city :${d!.users![index].company!.address!.city}"),
-                              Text("       coordinates :"),
-                              Text(
-                                  "          lat :${d!.users![index].company!.address!.coordinates!.lat}"),
-                              Text(
-                                  "          lag :${d!.users![index].company!.address!.coordinates!.lat}"),
-                              Text(
-                                  "       postalcode :${d!.users![index].company!.address!.postalCode}"),
-                              Text(
-                                  "       state :${d!.users![index].company!.address!.state}"),
-                              Text(
-                                  "   department :${d!.users![index].company!.department}"),
-                              Text(
-                                  "   name :${d!.users![index].company!.name}"),
-                              Text(
-                                  "   title :${d!.users![index].company!.title}"),
-                              Text("ein :${d!.users![index].ein}"),
-                              Text("ssn :${d!.users![index].ssn}"),
-                              Text(
-                                  "userAgent :${d!.users![index].userAgent}"),
-                            ],
-                          ),
+              ? ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: d!.users!.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      elevation: 3,
+                      child: ListTile(
+                        leading: Text("${d!.users![index].id}"),
+                        title: Text(
+                            "${d!.users![index].firstName} ${d!.users![index].lastName} ${d!.users![index].maidenName}"),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("age :${d!.users![index].age}"),
+                            Text("gender :${d!.users![index].gender}"),
+                            Text("email :${d!.users![index].email}"),
+                            Text("phone :${d!.users![index].phone}"),
+                            Text("username :${d!.users![index].username}"),
+                            Text("password :${d!.users![index].password}"),
+                            Text("birthdate :${d!.users![index].birthDate}"),
+                            Text("image :${d!.users![index].image}"),
+                            Text("bloodGroup :${d!.users![index].bloodGroup}"),
+                            Text("height :${d!.users![index].height}"),
+                            Text("weight :${d!.users![index].weight}"),
+                            Text("eyeColor :${d!.users![index].eyeColor}"),
+                            Text("hair :"),
+                            Text("   color :${d!.users![index].hair!.color}"),
+                            Text("   type :${d!.users![index].hair!.type}"),
+                            Text("domain :${d!.users![index].domain}"),
+                            Text("ip :${d!.users![index].ip}"),
+                            Text("address :"),
+                            Text(
+                                "    address :${d!.users![index].address!.address}"),
+                            Text("    city :${d!.users![index].address!.city}"),
+                            Text("    coordinates :"),
+                            Text(
+                                "        lat :${d!.users![index].address!.coordinates!.lat}"),
+                            Text(
+                                "        lag :${d!.users![index].address!.coordinates!.lat}"),
+                            Text(
+                                "   postalcode :${d!.users![index].address!.postalCode}"),
+                            Text(
+                                "   state :${d!.users![index].address!.state}"),
+                            Text("macAddress :${d!.users![index].macAddress}"),
+                            Text("university :${d!.users![index].university}"),
+                            Text("bank :"),
+                            Text(
+                                "    cardExpire :${d!.users![index].bank!.cardExpire}"),
+                            Text(
+                                "    cardNumber :${d!.users![index].bank!.cardNumber}"),
+                            Text(
+                                "    cardType :${d!.users![index].bank!.cardType}"),
+                            Text(
+                                "    currency :${d!.users![index].bank!.currency}"),
+                            Text("    iban :${d!.users![index].bank!.iban}"),
+                            Text("Company :"),
+                            Text("   address :"),
+                            Text(
+                                "       address :${d!.users![index].company!.address!.address}"),
+                            Text(
+                                "       city :${d!.users![index].company!.address!.city}"),
+                            Text("       coordinates :"),
+                            Text(
+                                "          lat :${d!.users![index].company!.address!.coordinates!.lat}"),
+                            Text(
+                                "          lag :${d!.users![index].company!.address!.coordinates!.lat}"),
+                            Text(
+                                "       postalcode :${d!.users![index].company!.address!.postalCode}"),
+                            Text(
+                                "       state :${d!.users![index].company!.address!.state}"),
+                            Text(
+                                "   department :${d!.users![index].company!.department}"),
+                            Text("   name :${d!.users![index].company!.name}"),
+                            Text(
+                                "   title :${d!.users![index].company!.title}"),
+                            Text("ein :${d!.users![index].ein}"),
+                            Text("ssn :${d!.users![index].ssn}"),
+                            Text("userAgent :${d!.users![index].userAgent}"),
+                          ],
                         ),
-                      );
-                    },
-                  ),
-                  Text("total :${d!.total}"),
-                  Text("skip :${d!.skip}"),
-                  Text("limit :${d!.limit}"),
-                ],
-              ),
-            ),
-          )
+                      ),
+                    );
+                  },
+                )
               : Center(
-            child: CircularProgressIndicator(),
-          ),
+                  child: CircularProgressIndicator(),
+                ),
         ),
         onWillPop: goback);
   }
@@ -238,32 +211,32 @@ class Users {
 
   Users(
       {this.id,
-        this.firstName,
-        this.lastName,
-        this.maidenName,
-        this.age,
-        this.gender,
-        this.email,
-        this.phone,
-        this.username,
-        this.password,
-        this.birthDate,
-        this.image,
-        this.bloodGroup,
-        this.height,
-        this.weight,
-        this.eyeColor,
-        this.hair,
-        this.domain,
-        this.ip,
-        this.address,
-        this.macAddress,
-        this.university,
-        this.bank,
-        this.company,
-        this.ein,
-        this.ssn,
-        this.userAgent});
+      this.firstName,
+      this.lastName,
+      this.maidenName,
+      this.age,
+      this.gender,
+      this.email,
+      this.phone,
+      this.username,
+      this.password,
+      this.birthDate,
+      this.image,
+      this.bloodGroup,
+      this.height,
+      this.weight,
+      this.eyeColor,
+      this.hair,
+      this.domain,
+      this.ip,
+      this.address,
+      this.macAddress,
+      this.university,
+      this.bank,
+      this.company,
+      this.ein,
+      this.ssn,
+      this.userAgent});
 
   Users.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -280,18 +253,18 @@ class Users {
     image = json['image'];
     bloodGroup = json['bloodGroup'];
     height = json['height'];
-    weight = json['weight'];
+    weight = double.parse(json['weight'].toString());
     eyeColor = json['eyeColor'];
     hair = json['hair'] != null ? new Hair.fromJson(json['hair']) : null;
     domain = json['domain'];
     ip = json['ip'];
     address =
-    json['address'] != null ? new Address.fromJson(json['address']) : null;
+        json['address'] != null ? new Address.fromJson(json['address']) : null;
     macAddress = json['macAddress'];
     university = json['university'];
     bank = json['bank'] != null ? new Bank.fromJson(json['bank']) : null;
     company =
-    json['company'] != null ? new Company.fromJson(json['company']) : null;
+        json['company'] != null ? new Company.fromJson(json['company']) : null;
     ein = json['ein'];
     ssn = json['ssn'];
     userAgent = json['userAgent'];
@@ -418,10 +391,10 @@ class Bank {
 
   Bank(
       {this.cardExpire,
-        this.cardNumber,
-        this.cardType,
-        this.currency,
-        this.iban});
+      this.cardNumber,
+      this.cardType,
+      this.currency,
+      this.iban});
 
   Bank.fromJson(Map<String, dynamic> json) {
     cardExpire = json['cardExpire'];
@@ -452,7 +425,7 @@ class Company {
 
   Company.fromJson(Map<String, dynamic> json) {
     address =
-    json['address'] != null ? new Address.fromJson(json['address']) : null;
+        json['address'] != null ? new Address.fromJson(json['address']) : null;
     department = json['department'];
     name = json['name'];
     title = json['title'];
